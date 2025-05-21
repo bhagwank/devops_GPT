@@ -29,6 +29,7 @@ jobs:
     
     - name: Run tests
       run: |
+        pytest -v
         pytest  --maxfail=1 --disable-warnings -v > result.log; tail -n 10 result.log
 
     - name: Analyze CI log with GPT Assistant
