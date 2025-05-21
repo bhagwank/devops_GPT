@@ -3,7 +3,10 @@ import os
 
 # Initialize OpenAI API Key
 openai.api_key = os.getenv('OPENAI_API_KEY')
-print("KEYYYYYYYYYYYYY****************",openai.api_key)
+if openai.api_key is None:
+    print("❌ API Key not found in environment.")
+else:
+    print("✅ API Key loaded.")
 #openai.api_key = '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'
 def analyze_log(log_content):
     """Analyzes the CI log using OpenAI GPT-4 to generate debugging suggestions."""
