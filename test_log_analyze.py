@@ -3,7 +3,7 @@ from io import StringIO
 from unittest.mock import patch
 
 # Assuming the analyze_log function is imported from ci_log_analyzer.py
-from ci_log_analyzer import analyze_log
+from log_analyze import analyze_log
 
 # Mock function for OpenAI API to simulate GPT responses
 def mock_analyze_log(log_content):
