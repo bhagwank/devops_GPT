@@ -20,7 +20,7 @@ def test_analyze_log_success():
     AssertionError: assert 5 == 10
     """
     # Patching the actual OpenAI API call to use the mock
-    with patch('ci_log_analyzer.analyze_log', side_effect=mock_analyze_log):
+    with patch('log_analyse.analyze_log', side_effect=mock_analyze_log):
         result = analyze_log(mock_log)
         
     assert result == "AI suggests checking the 'foo()' function for the return value."
