@@ -32,6 +32,8 @@ jobs:
         echo "OPENAI_API_KEY value is: $OPENAI_API_KEY"
         pytest -v
         pytest  --maxfail=1 --disable-warnings -v > result.log; tail -n 10 result.log
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
     - name: Analyze CI log with GPT Assistant
       run: |
