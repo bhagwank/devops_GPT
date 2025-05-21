@@ -13,7 +13,7 @@ def analyze_log(log_content):
     # Create a prompt with the CI log content
     prompt = f"""
     I am debugging a CI pipeline for an embedded software project. Here's the error log:
-
+    print("KEYYYYYYYYYYYYY****************",openai.api_key)
     {log_content}
 
     Can you provide detailed suggestions to fix this issue, along with explanations and any relevant links to documentation or resources?
