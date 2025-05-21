@@ -31,6 +31,6 @@ jobs:
 
     - name: Analyze CI log with GPT Assistant
       run: |
-        python ci_log_analyzer.py
+        python log_analyze.py
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
