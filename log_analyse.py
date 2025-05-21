@@ -25,7 +25,7 @@ def analyze_log(log_content):
     print("KEYYYYYYYYYYYYY****************",openai.api_key)
     # Make the API request to GPT-4
     response = openai.Completion.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         prompt=prompt,
         max_tokens=500,  
         temperature=0.5,  
