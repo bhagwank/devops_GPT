@@ -7,6 +7,8 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 def analyze_log(log_content):
     """Analyzes the CI log using OpenAI GPT-4 to generate debugging suggestions."""
     
+    if not log_content.strip():
+        return "No logs to analyze."
     # Create a prompt with the CI log content
     prompt = f"""
     I am debugging a CI pipeline for an embedded software project. Here's the error log:
