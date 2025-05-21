@@ -18,7 +18,7 @@ def analyze_log(log_content):
 
     Can you provide detailed suggestions to fix this issue, along with explanations and any relevant links to documentation or resources?
     """
-
+    print("KEYYYYYYYYYYYYY****************",openai.api_key)
     # Make the API request to GPT-4
     response = openai.Completion.create(
         model="gpt-4",
