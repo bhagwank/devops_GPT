@@ -1,5 +1,5 @@
 # devops_GPT readme
-# Change log
+# Change log updates
 ## [2.15.0-4]
 ### Added
 - testing ([#5])
