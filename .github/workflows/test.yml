@@ -1,0 +1,27 @@
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Run your script
+        id: run_script
+        run: |
+          echo "Running the script..."
+          # Simulate failure or long-running (uncomment one to test)
+          # exit 1           # simulate script failure
+           sleep 700         # simulate timeout (longer than 10 minutes)
+
+      - name: Check job status
+        if: always()
+        run: |
+          echo "Job status: ${{ job.status }}"
+          echo "Job conclusion: ${{ job.conclusion }}"
+
+          if [[ "${{ job.conclusion }}" == "failure" ]]; then
+            echo "❌ The job failed due to a script error."
+          elif [[ "${{ job.conclusion }}" == "cancelled" ]]; then
+            echo "⏱️ The job was cancelled (possible timeout)."
+          else
+            echo "✅ The job succeeded."
+          fi
