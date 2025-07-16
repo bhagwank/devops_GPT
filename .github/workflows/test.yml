@@ -1,3 +1,7 @@
+name: Check Timeout vs Script Failure
+on:
+  workflow_dispatch:
+
 jobs:
   example_job:
     runs-on: ubuntu-latest
