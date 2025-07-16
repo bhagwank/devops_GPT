@@ -16,16 +16,14 @@ jobs:
           # exit 1           # simulate script failure
            sleep 700         # simulate timeout (longer than 10 minutes)
 
-      - name: Check job status
-        if: always()
-        run: |
-          echo "Job status: ${{ job.status }}"
-          echo "Job conclusion: ${{ job.conclusion }}"
+      - name: Job failed (script error)
+        if: failure() && !cancelled()
+        run: echo "❌ Job failed due to script error."
 
-          if [[ "${{ job.conclusion }}" == "failure" ]]; then
-            echo "❌ The job failed due to a script error."
-          elif [[ "${{ job.conclusion }}" == "cancelled" ]]; then
-            echo "⏱️ The job was cancelled (possible timeout)."
-          else
-            echo "✅ The job succeeded."
-          fi
+      - name: Job cancelled (timeout)
+        if: cancelled()
+        run: echo "⏱️ Job was cancelled (likely timeout)."
+
+      - name: Job succeeded
+        if: success()
+        run: echo "✅ Job succeeded."
