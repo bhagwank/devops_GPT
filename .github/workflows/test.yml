@@ -5,7 +5,7 @@ on:
 jobs:
   example_job:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 2
 
     steps:
       - name: Run your script
